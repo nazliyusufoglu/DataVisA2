@@ -13,14 +13,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Titanic veri setini yükleyin
+# Fetch the Titanic Dataset
 url = 'https://github.com/nazliyusufoglu/DataVisA2/raw/main/Titanic_dataset.xlsx'
 df = pd.read_excel(url)
 
-# NaN değerleri filtrele ve yaş sütununu seç
+# Filter NaN values ​​and select age column
 ages = df['age'].dropna()
 
-# Alan grafiği oluştur
+# KDEplot
 plt.figure(figsize=(10, 6))
 sns.kdeplot(ages, fill=True, color='blue', edgecolor='black')
 plt.title('Distribution of Ages of Titanic Passengers')
@@ -43,7 +43,7 @@ df = pd.read_excel(url)
 
 ages = df['age'].dropna()
 
-# Seaborn kdeplot ile benzer bir grafiği çizin
+# Make a similar plot with Seaborn kdeplot
 plt.figure(figsize=(10, 6))
 sns.kdeplot(ages, fill=True, color='skyblue', edgecolor='black')
 plt.title('Distribution of Ages of Titanic Passengers')
@@ -52,7 +52,7 @@ plt.ylabel('Density')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 
-# Plotly ile benzer bir grafik çizin
+# Draw a similar graph with Plotly
 fig = go.Figure()
 
 fig.add_trace(go.Histogram(x=ages, nbinsx=30, histnorm='density', marker=dict(color='skyblue', line=dict(color='black', width=1))))
@@ -74,10 +74,10 @@ import matplotlib.pyplot as plt
 url = 'https://github.com/nazliyusufoglu/DataVisA2/raw/main/Titanic_dataset.xlsx'
 df = pd.read_excel(url)
 
-# Cinsiyet dağılımını hesapla
+# Calculate gender distribution
 gender_distribution = df['sex'].value_counts()
 
-# Pie chart çiz
+# Pie chart 
 plt.figure(figsize=(8, 8))
 plt.pie(gender_distribution, labels=gender_distribution.index, autopct='%1.1f%%', colors=['skyblue', 'lightcoral'])
 plt.title('Gender Distribution of Titanic Passengers')
@@ -92,10 +92,10 @@ import matplotlib.pyplot as plt
 url = 'https://github.com/nazliyusufoglu/DataVisA2/raw/main/Titanic_dataset.xlsx'
 df = pd.read_excel(url)
 
-# Pclass (Passenger Class) dağılımını hesapla
+# Calculate Pclass (Passenger Class) distribution
 pclass_distribution = df['pclass'].value_counts()
 
-# Donut chart çiz
+# Donut chart 
 plt.figure(figsize=(8, 8))
 plt.pie(pclass_distribution, labels=pclass_distribution.index, autopct='%1.1f%%', colors=['lightcoral', 'skyblue', 'lightgreen'], wedgeprops=dict(width=0.3))
 plt.title('Passenger Class Distribution of Titanic Passengers')
@@ -111,7 +111,7 @@ import seaborn as sns
 url = 'https://github.com/nazliyusufoglu/DataVisA2/raw/main/Titanic_dataset.xlsx'
 df = pd.read_excel(url)
 
-# Cinsiyete göre yaş dağılımını görselleştirmek için bir viyolin grafiği oluşturma
+# Violin Plot
 plt.figure(figsize=(15, 10))
 sns.violinplot(x='sex', y='age', data=df)
 plt.title('Violin Plot of Age Distribution by Gender')
@@ -126,10 +126,10 @@ import plotly.express as px
 
 url = 'https://github.com/nazliyusufoglu/DataVisA2/raw/main/Titanic_dataset.xlsx'
 df = pd.read_excel(url)
-# Violin grafiği oluşturma ve interaktif olarak gösterme
+
+#Interactivity
 fig = px.violin(df, x='sex', y='age', box=True, points="all", hover_data=df.columns)
 
-# Grafik düzeni
 fig.update_layout(
     title='Violin Plot of Age Distribution by Gender',
     xaxis_title='Gender',
