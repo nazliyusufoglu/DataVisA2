@@ -21,9 +21,13 @@ Here are the key features or columns in the Titanic dataset:
 2. Research Questions:
 
 •	What is the age distribution of the passengers on the ship?
+
 •	What is the gender distribution of the passengers on the ship?
+
 •	What is the passanger class distribution of the passengers on the ship?
+
 •	How is the age distribution of passengers on the ship based on gender?
+
 •	How is the survival status of passengers on the ship based on gender?
 
 3.Visualization Techniques:
